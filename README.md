@@ -178,7 +178,7 @@ akash provider lease-status --node $AKASH_NODE --dseq $AKASH_DSEQ --from $AKASH_
 ```
 ssh root@cluster.provider-0.prod.ams1.akash.pub -p 31549
 ```
-пароль задается при создании образа, после первого входа его необходимо сменить
+пароль определяется в deploy.yml файле
 Также можно просмотреть логи нашей ноды:
 ```
 akash provider lease-logs --node "$AKASH_NODE" --dseq "$AKASH_DSEQ" --gseq "$AKASH_GSEQ" --oseq "$AKASH_OSEQ" --provider "$AKASH_PROVIDER" --from "$AKASH_KEY_NAME"
