@@ -1,0 +1,52 @@
+---
+version: "2.0"
+
+services:
+  avalanchego:
+    image: bloqhub/avalanchego-ssh:0.1
+    expose:
+      - port: 9650
+        as: 9650
+        proto: tcp
+        to:
+          - global: true
+      - port: 2242
+        as: 2242
+        proto: tcp
+        to:
+          - global: true
+      - port: 9651
+        as: 9651
+        proto: tcp
+        to:
+          - global: true
+    env:
+      - PASSWORD=axijoozenlowr3wr_hSi
+
+profiles:
+  compute:
+    avalanchego:
+      resources:
+        cpu:
+          units: 0.1
+        memory:
+          size: 512Mi
+        storage:
+          size: 512Mi
+  placement:
+    akash:
+      attributes:
+        host: akash
+      signedBy:
+        anyOf:
+          - "akash1365yvmc4s7awdyj3n2sav7xfx76adc6dnmlx63"
+      pricing:
+        avalanchego:
+          denom: uakt
+          amount: 100
+
+deployment:
+  avalanchego:
+    akash:
+      profile: avalanchego
+      count: 1
