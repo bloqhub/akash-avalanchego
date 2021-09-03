@@ -44,7 +44,7 @@ akash --node "$AKASH_NODE" query bank balances "$AKASH_ACCOUNT_ADDRESS"
 ```
 Создаем сертификат
 ```
-akash tx cert create client --from=$AKASH_KEY_NAME --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE --fees 200uakt -y
+akash tx cert create client --from=$AKASH_KEY_NAME --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE --fees 500uakt -y
 ```
 На этом этапе установку akash можно считать завершенной
 
@@ -114,7 +114,7 @@ EOF
 
 Разворачиваем нашу конфигурацию
 ```
-akash tx deployment create deploy.yml --from $AKASH_KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 200uakt -b sync -y
+akash tx deployment create deploy.yml --from $AKASH_KEY_NAME --node $AKASH_NODE --chain-id $AKASH_CHAIN_ID --fees 500uakt -b sync -y
 
 {"height":"0","txhash":"05CBBC9ACBD1F51AF5B0D254E2BFD56B1ACA42819E5BABEEC5086947625E45D4","codespace":"","code":0,"data":"","raw_log":"[]","logs":[],"info":"","gas_wanted":"0","gas_used":"0","tx":
 null,"timestamp":""}
@@ -147,8 +147,7 @@ export AKASH_PROVIDER=akash14c4ng96vdle6tae8r4hc2w4ujwrshdddtuudk0
 ```
 арендуем выбранного провайдера
 ```
-akash tx market lease create --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE --owner $AKASH_ACCOUNT_ADDRESS --dseq $AKASH_DSEQ --gseq $AKASH_GSEQ --oseq $AKASH_OSEQ --provider
-$AKASH_PROVIDER --from $AKASH_KEY_NAME --fees 200uakt -y
+akash tx market lease create --chain-id $AKASH_CHAIN_ID --node $AKASH_NODE --owner $AKASH_ACCOUNT_ADDRESS --dseq $AKASH_DSEQ --gseq $AKASH_GSEQ --oseq $AKASH_OSEQ --provider $AKASH_PROVIDER --from $AKASH_KEY_NAME --fees 500uakt -y
 ```
 спустя несколько секунд проверяем статус
 ```
